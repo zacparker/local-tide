@@ -11,6 +11,7 @@ toggleFullScreen = function() {
 },
 
 handleTap = function() {
+  // this is where we will add logic for handling the tap action
   console.log('tap tap');
 },
 

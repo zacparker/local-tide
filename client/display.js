@@ -8,7 +8,7 @@ Template.display.helpers({
     query.observeChanges({
       added: function(id, fields) {
         var actionType = fields.action;
-        console.log('gesture performed via interface');
+        console.log(actionType + ' performed via interface');
         console.log(query.fetch());
         if (actionType === "tap") {
           handleTap();
@@ -22,6 +22,7 @@ Template.display.helpers({
         console.log('previous action removed');
       }
     });
+
     return query;
   },
 
