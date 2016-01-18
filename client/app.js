@@ -9,6 +9,12 @@ toggleFullScreen = function() {
     cancelFullScreen.call(doc);
   }
 },
+
 handleTap = function() {
   console.log('tap tap');
+},
+
+logActions = function() {
+  var actions = Actions.find().fetch();
+  console.log(actions);
 }

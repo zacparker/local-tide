@@ -7,7 +7,7 @@ Template.interface.helpers({
   templateGestures: {
     'tap .trigger': function (event, templateInstance) {
       // remove all events from database
-      Meteor.call('removeActions');
+      Meteor.call('removeActions', logActions());
       console.log('tap occured');
       // save latest event to database
       Actions.insert({
@@ -15,8 +15,6 @@ Template.interface.helpers({
         triggerAction: true,
         createdAt: new Date() // current time
       });
-      var actions = Actions.find().fetch();
-      console.log(actions);
     }
   }
 });
