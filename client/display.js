@@ -8,7 +8,6 @@ Template.display.helpers({
     query.observeChanges({
       added: function(id, fields) {
         var actionType = fields.action;
-        console.log(actionType + ' performed via interface');
         console.log(query.fetch());
         if (actionType === "tap") {
           handleTap();
