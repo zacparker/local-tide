@@ -8,7 +8,7 @@ Template.displayBarryStone.helpers({
         var selectedImageNumber = fields.selectedImageNumber;
         var $selectedImgContainer = $('.user-selected-image-container');
         var $selectedImg = $('.user-selected-image-container').find('img');
-        var fadeRate = 1000;
+        var fadeRate = 1500;
 
         console.log(query.fetch());
         $selectedImgContainer.html('<img src="/images/barry-stone/' + selectedImageNumber + '.jpg">');
