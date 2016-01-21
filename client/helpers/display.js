@@ -1,5 +1,3 @@
-Meteor.subscribe('actions');
-
 Template.display.helpers({
 
   actionPerformed: function() {
@@ -23,18 +21,6 @@ Template.display.helpers({
     });
 
     return query;
-  },
-
-  width: function() {
-    var w = 800;
-    // Do Stuff
-    return w;
-  },
-
-  height: function() {
-    var h = 640;
-    // Do Stuff
-    return h;
   }
 
 });
