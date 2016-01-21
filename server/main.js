@@ -8,6 +8,6 @@ Meteor.publish('actions', function() {
 
 Meteor.methods({
   removeActions: function () {
-    Actions.remove({removeBeforeInsert: true});
+    Actions.remove({});
   }
 });

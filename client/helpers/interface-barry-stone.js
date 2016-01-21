@@ -14,7 +14,6 @@ Template.interfaceBarryStone.helpers({
           actionType: actionType,
           artist: artist,
           selectedImageNumber: selectedImageNumber,
-          removeBeforeInsert: true,
           createdAt: new Date() // current time
         });
       });

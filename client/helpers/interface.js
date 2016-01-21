@@ -9,7 +9,6 @@ Template.interface.helpers({
         // save latest event to database
         Actions.insert({
           action: actionType,
-          removeBeforeInsert: true,
           createdAt: new Date() // current time
         });
       });
