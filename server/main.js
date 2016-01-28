@@ -7,7 +7,7 @@ Meteor.publish('actions', function() {
 });
 
 Meteor.methods({
-  removeActions: function () {
-    Actions.remove({});
+  removeActions: function (artist) {
+    Actions.remove({artist: artist});
   }
 });

@@ -1,8 +1,8 @@
-Template.interfaceStone.helpers({
+Template.interfaceLeFraga.helpers({
   templateGestures: {
     'tap .trigger': function(event, templateInstance) {
       event.preventDefault(); // when the user taps, don't follow the src link
-      var artist = "stone";
+      var artist = "le-fraga";
       var actionType = event.type; // what type of event?
       var selectedImageNumber = event.target.id; // looking for the id of the event target
       // remove all events from database
@@ -19,7 +19,7 @@ Template.interfaceStone.helpers({
       });
     },
     'tap .info-modal-open': function(event, templateInstance) {
-      AntiModals.overlay('modal-stone', { // when the user taps the 'T', open the modal
+      AntiModals.overlay('modal-le-fraga', { // when the user taps the 'T', open the modal
         modal: true
       });
     }
