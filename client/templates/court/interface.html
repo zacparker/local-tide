@@ -1,9 +1,9 @@
 <template name="interfaceCourt">
   <div class="interface interface-court">
     {{#HammerTouchArea gestureMap=templateGestures}}
-      <div class="vertical-center-wrapper">
-        <video id="player" width="480" height="320" class="trigger" webkit-playsinline>
-      </div>
+      <video id="court-video-interface" class="video-js vjs-default-skin trigger" autoplay loop preload="auto" width="1024" height="528">
+       <source src="/media/court/interface/DCFigA.mp4" type='video/mp4' />
+      </video>
       <a class="info-modal-open" href="#">T</a>
     {{/HammerTouchArea}}
   </div>

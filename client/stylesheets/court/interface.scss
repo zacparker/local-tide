@@ -1,9 +1,12 @@
 .interface.interface-court {
-  .user-selected-image-container{
-    opacity: 0;
+  video {
     position: relative;
-    z-index: 999;
-    img {
-    }
+    top: 50%;
+    transform: translateY(100%);
+  }
+
+  .video-js {
+    width: 100%;
+    height: auto;
   }
 }
