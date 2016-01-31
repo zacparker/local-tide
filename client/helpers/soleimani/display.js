@@ -13,7 +13,7 @@ Template.displaySoleimani.helpers({
           var fadeRate = 1500; // 1.5 seconds
 
           console.log(query.fetch());
-          $selectedImgContainer.html('<img src="/images/soleimani/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
+          $selectedImgContainer.html('<img src="/media/soleimani/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
           $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
 
           setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
