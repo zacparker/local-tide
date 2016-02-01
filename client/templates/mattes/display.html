@@ -1,7 +1,24 @@
 <template name="displayMattes">
   <div class="display display-mattes">
-    <img src="/media/mattes/map.jpg">
-    <div class="user-selected-image-container"></div>
+    <div class="slide-show-fingers">
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome2.png" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome3.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome4.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome5.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome6.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome7.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome8.jpg" />
+      <img class="slide trigger" src="/media/mattes/display/fingers/fingershome9.jpg" />
+    </div>
+    <div class="artifacts">
+      <img id="1" class="hidden" src="/media/mattes/display/artifacts/1.png" />
+      <img id="2" class="hidden" src="/media/mattes/display/artifacts/2.png" />
+      <img id="3" class="hidden" src="/media/mattes/display/artifacts/3.png" />
+      <img id="4" class="hidden" src="/media/mattes/display/artifacts/4.jpeg" />
+      <img id="5" class="hidden" src="/media/mattes/display/artifacts/5.jpeg" />
+      <img id="6" class="hidden" src="/media/mattes/display/artifacts/6.png" />
+    </div>
     <div class="hidden">{{actionPerformed}}</div>
   </div>
 </template>

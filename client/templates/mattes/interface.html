@@ -1,18 +1,18 @@
 <template name="interfaceMattes">
-  <div class="interface interface-mattes">
+  <div class="interface interface-mattes vertical-center-wrapper">
     {{#HammerTouchArea gestureMap=templateGestures}}
-      <div class="vertical-center-wrapper">
-        <img src="/media/mattes/map.jpg" class="trigger" usemap="#map-mattes">
+      <div class="slide-show">
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome2.png" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome3.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome4.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome5.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome6.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome7.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome8.jpg" />
+        <img class="slide trigger" src="/media/mattes/interface/fingers/fingershome9.jpg" />
       </div>
       <a class="info-modal-open" href="#">T</a>
-      <map id="map-mattes" name="map-mattes" class="trigger">
-        <area shape="rect" coords="0,0,640,640"        href="#" class="trigger" id="1">
-        <area shape="rect" coords="640,0,1280,640"     href="#" class="trigger" id="2">
-        <area shape="rect" coords="1280,0,1920,640"    href="#" class="trigger" id="3">
-        <area shape="rect" coords="0,640,640,1280"     href="#" class="trigger" id="4">
-        <area shape="rect" coords="640,640,1280,1280"  href="#" class="trigger" id="5">
-        <area shape="rect" coords="1280,640,1920,1280" href="#" class="trigger" id="6">
-      </map>
     {{/HammerTouchArea}}
   </div>
 </template>

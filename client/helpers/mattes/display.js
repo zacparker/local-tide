@@ -7,20 +7,44 @@ Template.displayMattes.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "mattes") { // if the added item matches this artist
-          var selectedImageNumber = fields.selectedImageNumber;
-          var $selectedImgContainer = $('.user-selected-image-container');
-          var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
-          var fadeRate = 1500; // 1.5 seconds
+          count = typeof count === "undefined" ? 0 : count;
+          var i = Math.floor(count / 3);
+          switch (count) {
+            case 0:
+              break;
+            case 1:
+            case 4:
+            case 7:
+            case 10:
+            case 13:
+            case 16:
+              $('.artifacts #'+ (i + 1)).removeClass('hidden');
+              break;
+            case 2:
+            case 5:
+            case 8:
+            case 11:
+            case 14:
+            case 17:
+              $("html, body").animate({ scrollTop: $(document).height() }, 5000);
+              break;
+            case 3:
+            case 6:
+            case 9:
+            case 12:
+            case 15:
+            case 18:
+              $('.artifacts #'+ i).addClass('hidden');
+              $("html, body").animate({ scrollTop: 0 }, "slow");
+              break;
+          }
+          // Increment the counter
+          count++;
+          // Reset the counter
+          if (count >= 18) {
+            count = 0;
+          }
 
-          console.log(query.fetch());
-          $selectedImgContainer.html('<img src="/media/mattes/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
-          $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
-
-          setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
-            $selectedImgContainer.fadeTo(fadeRate, 0, function() {
-              $selectedImg.remove();
-            })
-          }, 5000);
         }
       },
 
@@ -32,3 +56,27 @@ Template.displayMattes.helpers({
     return query;
   }
 });
+
+Template.displayMattes.rendered = function () {
+
+  var slideShowOptions = {
+    // Optional: How many ms should the auto slider be set to?
+    // Set to 0 for no auto slide
+    timer: 4000,
+    // Optional: Should the slideshow restart at the first element
+    // if the user clicks "next" at the last element?
+    carousel: true,
+    // Holder of all your views. Will most often only contain one
+    // view object!
+    views: [{
+      // Set to the DOM wrapper element
+      wrapper: this.find('.slide-show-fingers'),
+      // Set to the DOM slides elements
+      slides: this.findAll('.slide-show-fingers .slide')
+    }]
+  };
+
+  // Here the slideshow is actually created!
+  var slideShow = new Slidr( slideShowOptions );
+
+};
