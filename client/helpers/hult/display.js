@@ -7,20 +7,12 @@ Template.displayHult.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "hult") { // if the added item matches this artist
-          var selectedImageNumber = fields.selectedImageNumber;
-          var $selectedImgContainer = $('.user-selected-image-container');
-          var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
-          var fadeRate = 1500; // 1.5 seconds
-
-          console.log(query.fetch());
-          $selectedImgContainer.html('<img src="/media/hult/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
-          $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
-
-          setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
-            $selectedImgContainer.fadeTo(fadeRate, 0, function() {
-              $selectedImg.remove();
-            })
-          }, 5000);
+          $('.slide-show-before').toggleClass('hidden');
+          $('.slide-show-after').toggleClass('hidden');
+          setTimeout(function() {
+            $('.slide-show-before').toggleClass('hidden');
+            $('.slide-show-after').toggleClass('hidden');
+          }, 3000);
         }
       },
 
@@ -32,3 +24,32 @@ Template.displayHult.helpers({
     return query;
   }
 });
+
+
+Template.displayHult.rendered = function () {
+
+  var slideShowOptions = {
+    // Optional: How many ms should the auto slider be set to?
+    // Set to 0 for no auto slide
+    timer: 8000,
+    // Optional: Should the slideshow restart at the first element
+    // if the user clicks "next" at the last element?
+    carousel: true,
+    // Holder of all your views. Will most often only contain one
+    // view object!
+    views: [{
+      // Set to the DOM wrapper element
+      wrapper: this.find('.slide-show-before'),
+      // Set to the DOM slides elements
+      slides: this.findAll('.slide-show-before .slide')
+    },{
+      // Set to the DOM wrapper element
+      wrapper: this.find('.slide-show-after'),
+      // Set to the DOM slides elements
+      slides: this.findAll('.slide-show-after .slide')
+    }]
+  };
+
+  // Here the slideshow is actually created!
+  var slideShow = new Slidr( slideShowOptions );
+}

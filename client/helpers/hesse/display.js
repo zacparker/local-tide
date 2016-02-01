@@ -7,25 +7,12 @@ Template.displayHesse.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "hesse") { // if the added item matches this artist
-          var selectedImageNumber = fields.selectedImageNumber;
-          var $selectedImgContainer = $('.user-selected-image-container');
-          var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
-          var fadeRate = 1500; // 1.5 seconds
-
-          console.log(query.fetch());
-          $selectedImgContainer.html('<img src="/media/hesse/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
-          $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
-
-          setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
-            $selectedImgContainer.fadeTo(fadeRate, 0, function() {
-              $selectedImg.remove();
-            })
-          }, 5000);
+          // Do Stuff
         }
       },
 
       removed: function() {
-          console.log('previous action removed');
+        console.log('previous action removed');
       }
     });
 

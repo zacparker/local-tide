@@ -2,7 +2,7 @@ Meteor.subscribe('actions');
 
 Meteor.startup(function () {
   // code to run on client at startup
-  toggleFullScreen();
+  // toggleFullScreen();
 });
 
 toggleFullScreen = function() {

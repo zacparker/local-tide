@@ -1,18 +1,10 @@
 <template name="interfaceHesse">
   <div class="interface interface-hesse">
     {{#HammerTouchArea gestureMap=templateGestures}}
-      <div class="vertical-center-wrapper">
-        <img src="/media/hesse/map.jpg" class="trigger" usemap="#map-hesse">
-      </div>
+      <video id="hesse-video-interface" class="video-js vjs-default-skin trigger" autoplay loop preload="auto" width="700" height="576">
+       <source src="/media/hesse/interface/sequenz-01_1.mp4" type='video/mp4' />
+      </video>
       <a class="info-modal-open" href="#">T</a>
-      <map id="map-hesse" name="map-hesse" class="trigger">
-        <area shape="rect" coords="0,0,640,640"        href="#" class="trigger" id="1">
-        <area shape="rect" coords="640,0,1280,640"     href="#" class="trigger" id="2">
-        <area shape="rect" coords="1280,0,1920,640"    href="#" class="trigger" id="3">
-        <area shape="rect" coords="0,640,640,1280"     href="#" class="trigger" id="4">
-        <area shape="rect" coords="640,640,1280,1280"  href="#" class="trigger" id="5">
-        <area shape="rect" coords="1280,640,1920,1280" href="#" class="trigger" id="6">
-      </map>
     {{/HammerTouchArea}}
   </div>
 </template>
