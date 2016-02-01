@@ -1,9 +1,20 @@
-.display-skyers {
-  .user-selected-image-container{
-    opacity: 0;
+.display.display-skyers {
+  .active {
+    position: absolute;
+    top: -100%;
+  }
+  video {
     position: relative;
-    z-index: 999;
-    img {
-    }
+    top: 50%;
+    transform: translateY(17%);
+  }
+
+  .video-js {
+    width: 100%;
+    height: auto;
+  }
+  img {
+    width: 100%;
+    height: auto;
   }
 }

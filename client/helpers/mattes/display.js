@@ -7,9 +7,9 @@ Template.displayMattes.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "mattes") { // if the added item matches this artist
-          count = typeof count === "undefined" ? 0 : count;
-          var i = Math.floor(count / 3);
-          switch (count) {
+          mattesCount = typeof mattesCount === "undefined" ? 0 : mattesCount; // Defined in the global namespace to keep track of the count across actions
+          var i = Math.floor(mattesCount / 3);
+          switch (mattesCount) {
             case 0:
               break;
             case 1:
@@ -38,11 +38,11 @@ Template.displayMattes.helpers({
               $("html, body").animate({ scrollTop: 0 }, "slow");
               break;
           }
-          // Increment the counter
-          count++;
-          // Reset the counter
-          if (count >= 18) {
-            count = 0;
+          // Increment the mattesCounter
+          mattesCount++;
+          // Reset the mattesCounter
+          if (mattesCount >= 18) {
+            mattesCount = 0;
           }
 
         }

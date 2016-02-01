@@ -7,20 +7,17 @@ Template.displaySkyers.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "skyers") { // if the added item matches this artist
-          var selectedImageNumber = fields.selectedImageNumber;
-          var $selectedImgContainer = $('.user-selected-image-container');
-          var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
-          var fadeRate = 1500; // 1.5 seconds
+          skyersCount = typeof skyersCount === "undefined" ? 1 : skyersCount; // Defined in the global namespace to keep track of the count across actions
+          $('#' + skyersCount).addClass('active').removeClass('hidden').animate({top: "100%"}, 5000, function() {
+            $('#' + skyersCount).removeClass('active').addClass('hidden');
 
-          console.log(query.fetch());
-          $selectedImgContainer.html('<img src="/media/skyers/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
-          $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
-
-          setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
-            $selectedImgContainer.fadeTo(fadeRate, 0, function() {
-              $selectedImg.remove();
-            })
-          }, 5000);
+            // Increment the mattesCounter
+            skyersCount++;
+            // Reset the mattesCounter
+            if (skyersCount >= 17) {
+              skyersCount = 1;
+            }
+          });
         }
       },
 

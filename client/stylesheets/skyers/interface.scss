@@ -1,0 +1,12 @@
+.interface.interface-skyers {
+  video {
+    position: relative;
+    top: 50%;
+    transform: translateY(40%);
+  }
+
+  .video-js {
+    width: 100%;
+    height: auto;
+  }
+}
