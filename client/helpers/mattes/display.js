@@ -26,7 +26,7 @@ Template.displayMattes.helpers({
             case 11:
             case 14:
             case 17:
-              $("html, body").animate({ scrollTop: $(document).height() }, 5000);
+              $("html, body").animate({ scrollTop: $(document).height() }, 15000);
               break;
             case 3:
             case 6:
