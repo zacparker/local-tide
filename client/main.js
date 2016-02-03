@@ -15,14 +15,4 @@ toggleFullScreen = function() {
   } else {
     cancelFullScreen.call(doc);
   }
-},
-
-handleTap = function() {
-  // this is where we will add logic for handling the tap action
-  console.log('tap handled');
-},
-
-logActions = function() {
-  var actions = Actions.find().fetch();
-  console.log(actions);
 }

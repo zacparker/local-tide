@@ -4,7 +4,7 @@ Template.interfaceHult.helpers({
       event.preventDefault(); // when the user taps, don't follow the src link
       var artist = "hult";
       var actionType = event.type; // what type of event?
-      var selectedImageNumber = event.target.id; // looking for the id of the event target
+       var terminalOfOrigin = "interface";
       // remove all events from database
       Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
         logActions(); // log to the console
@@ -13,7 +13,7 @@ Template.interfaceHult.helpers({
         Actions.insert({
           actionType: actionType,
           artist: artist,
-          selectedImageNumber: selectedImageNumber,
+          terminalOfOrigin: terminalOfOrigin,
           createdAt: new Date() // current time
         });
       });
@@ -23,29 +23,27 @@ Template.interfaceHult.helpers({
         modal: true
       });
     }
-  }
+  },
 });
 
-Template.interfaceHult.rendered = function () {
+Template.interfaceHult.onRendered(function () {
+  var self = this;
+  var query = Actions.find();
+  query.observeChanges({ // listen to changes to the collection
+    added: function(id, fields) { // if anything is added to the collection
+      if (fields.artist === "hult" && fields.terminalOfOrigin === "display" && fields.count <= 0) {
 
-  var slideShowOptions = {
-    // Optional: How many ms should the auto slider be set to?
-    // Set to 0 for no auto slide
-    timer: 8000,
-    // Optional: Should the slideshow restart at the first element
-    // if the user clicks "next" at the last element?
-    carousel: true,
-    // Holder of all your views. Will most often only contain one
-    // view object!
-    views: [{
-      // Set to the DOM wrapper element
-      wrapper: this.find('.slide-show'),
-      // Set to the DOM slides elements
-      slides: this.findAll('.slide-show .slide')
-    }]
-  };
-
-  // Here the slideshow is actually created!
-  var slideShow = new Slidr( slideShowOptions );
-
-};
+        new Slidr({
+          timer: 8000,
+          carousel: true,
+          views: [{
+            wrapper: $('.hult-slide-show').get(0),
+            slides: $('.hult-slide-show .slide').toArray(),
+          }]
+        });
+      } else if (fields.count >= 0 ) {
+        console.log("tried again" )
+      }
+    }
+  });
+});
