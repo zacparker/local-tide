@@ -1,5 +1,5 @@
-# parallelograms
-A semi-interactive art exhibit
+# Local Tide
+A semi-interactive art exhibit by Parallelograms
 
 1. Install Meteor (https://www.meteor.com/install)
 2. Clone repo
