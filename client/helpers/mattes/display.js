@@ -34,7 +34,7 @@ Template.displayMattes.helpers({
             case 12:
             case 15:
             case 18:
-              $('.artifacts #'+ i).addClass('hidden');
+              $('.artifacts #' + i).addClass('hidden');
               $("html, body").animate({ scrollTop: 0 }, "slow");
               break;
           }
