@@ -6,7 +6,7 @@ Template.interfaceMattes.helpers({
       var actionType = event.type; // what type of event?
       // remove all events from database
       Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
-        logActions(); // log to the console
+
         console.log(actionType + ' performed via interface');
         // save latest event to database
         Actions.insert({

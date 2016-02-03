@@ -7,7 +7,7 @@ Template.interfaceStephens.helpers({
       var selectedImageNumber = event.target.id; // looking for the id of the event target
       // remove all events from database
       Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
-        logActions(); // log to the console
+
         console.log(actionType + ' performed via interface');
         // save latest event to database
         Actions.insert({
