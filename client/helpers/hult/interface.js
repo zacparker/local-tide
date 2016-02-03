@@ -7,7 +7,6 @@ Template.interfaceHult.helpers({
        var terminalOfOrigin = "interface";
       // remove all events from database
       Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
-        // console.log(actionType + ' performed via interface');
         // save latest event to database
         Actions.insert({
           actionType: actionType,
@@ -22,27 +21,36 @@ Template.interfaceHult.helpers({
         modal: true
       });
     }
-  },
+  }
 });
 
-Template.interfaceHult.onRendered(function () {
-  var self = this;
+Template.interfaceHult.rendered = function () {
   var query = Actions.find();
   query.observeChanges({ // listen to changes to the collection
     added: function(id, fields) { // if anything is added to the collection
-      if (fields.artist === "hult" && fields.terminalOfOrigin === "display" && fields.count <= 0) {
-
-        new Slidr({
+      hisci = typeof hisci !== "undefined" ? hisci : 0; // hisci = hultInterfaceSlideshowCreatedIndex
+      var startSlideshow = function() {
+        $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).clone().appendTo('.clone-container');
+        $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).remove();
+        hisci++;
+        $('.clone-container div').removeClass();
+        $('.clone-container div').addClass('hult-slide-show-' + hisci);
+        $('.clone-container div').clone().appendTo('.slideshow-outer-wrapper');
+        $('.clone-container div').remove();
+        var hultInterfaceStartSlideShowOptions = {
           timer: 8000,
           carousel: true,
           views: [{
-            wrapper: $('.hult-slide-show').get(0),
-            slides: $('.hult-slide-show .slide').toArray(),
+            wrapper: $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).get(0),
+            slides: $('.slideshow-outer-wrapper .hult-slide-show-' + hisci + ' .slide').toArray()
           }]
-        });
-      } else if (fields.count >= 0 ) {
-        console.log("tried again" )
+        };
+        new Slidr( hultInterfaceStartSlideShowOptions );
+      };
+
+      if (fields.artist === "hult" && fields.terminalOfOrigin === "display") {
+        var slideShow = startSlideshow();
       }
     }
   });
-});
+};

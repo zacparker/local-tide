@@ -41,7 +41,8 @@ Template.displayHult.rendered = function () {
         count: count,
         createdAt: new Date() // current time
       }, count++);
-      var slideShow = new Slidr( slideShowOptions );
+
+      var slideShow = (count === 1) ? new Slidr( slideShowOptions ) : null;;
     });
-  }, 0);
+  }, 5000);
 }
