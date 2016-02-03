@@ -9,7 +9,7 @@ Template.displayHult.helpers({
           setTimeout(function() {
             $('.slide-show-before').toggleClass('hidden');
             $('.slide-show-after').toggleClass('hidden');
-          }, 3000);
+          }, 4000);
         }
       }
     });
