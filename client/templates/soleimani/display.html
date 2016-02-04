@@ -1,7 +1,8 @@
 <template name="displaySoleimani">
   <div class="display display-soleimani">
-    <img src="/media/soleimani/map.jpg">
-    <div class="user-selected-image-container"></div>
+    <video id="display-soleimani-video" class="video-js vjs-default-skin" autoplay loop preload="auto" width="1024" height="528">
+     <source src="/media/soleimani/display/iseeyou.mp4" type='video/mp4' />
+    </video>
     <div class="hidden">{{actionPerformed}}</div>
   </div>
 </template>
