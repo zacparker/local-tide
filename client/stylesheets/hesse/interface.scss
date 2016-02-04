@@ -1,12 +1,7 @@
 .interface.interface-hesse {
-  video {
+  img {
     position: relative;
     top: 50%;
-    transform: translateY(30%);
-  }
-
-  .video-js {
-    width: 100%;
-    height: auto;
+    transform: translateY(25%);
   }
 }
