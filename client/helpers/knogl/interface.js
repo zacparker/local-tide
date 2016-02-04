@@ -6,8 +6,6 @@ Template.interfaceKnogl.helpers({
       var actionType = event.type; // what type of event?
       // remove all events from database
       Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
-
-        console.log(actionType + ' performed via interface');
         // save latest event to database
         Actions.insert({
           actionType: actionType,
