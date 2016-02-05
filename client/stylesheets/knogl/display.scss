@@ -1,21 +1,17 @@
 .display.display-knogl {
   video {
+    width: 100%;
+    height: auto;
     position: relative;
     top: 50%;
     transform: translateY(25%);
   }
-
-  .video-js {
-    width: 100%;
-    height: auto;
-  }
-
   #knogl-video-display-overlay {
     position: absolute;
     z-index: 999;
     top: -12px;
   }
-  .opactiy-zero {
+  .opacity-zero {
     opacity: 0;
   }
 }

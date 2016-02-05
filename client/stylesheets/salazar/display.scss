@@ -1,9 +1,20 @@
-.display-salazar {
-  .user-selected-image-container{
+.display.display-salazar {
+  video {
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: auto;
+  }
+  #display-salazar-video-1 {
+    transform: translateY(70%);
+  }
+  #display-salazar-video-2 {
+    transform: translateY(62%);
+  }
+  #display-salazar-video-3 {
+    transform: translateY(83%);
+  }
+  .opacity-zero {
     opacity: 0;
-    position: relative;
-    z-index: 999;
-    img {
-    }
   }
 }

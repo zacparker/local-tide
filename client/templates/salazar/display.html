@@ -1,7 +1,14 @@
 <template name="displaySalazar">
   <div class="display display-salazar">
-    <img src="/media/salazar/map.jpg">
-    <div class="user-selected-image-container"></div>
+    <video id="display-salazar-video-1" class="video-js vjs-default-skin" autoplay loop preload="auto" width="700" height="526">
+      <source src="/media/salazar/display/i-lived-here-for-17-yrs.mp4" type='video/mp4' />
+    </video>
+    <video id="display-salazar-video-2" class="video-js vjs-default-skin hidden pop-up" autoplay loop preload="auto" width="700" height="526">
+      <source src="/media/salazar/display/oregon-trail-just-hunting-and-floating.mp4" type='video/mp4' />
+    </video>
+    <video id="display-salazar-video-3" class="video-js vjs-default-skin hidden pop-up" autoplay loop preload="auto" width="700" height="526">
+      <source src="/media/salazar/display/tetris.mp4" type='video/mp4' />
+    </video>
     <div class="hidden">{{actionPerformed}}</div>
   </div>
 </template>

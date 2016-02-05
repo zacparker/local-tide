@@ -5,7 +5,7 @@ Template.displayKnogl.helpers({
 
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "knogl") { // if the added item matches this artist
-          $('#knogl-video-display-overlay').toggleClass('opactiy-zero');
+          $('#knogl-video-display-overlay').toggleClass('opacity-zero');
         }
       }
     });
