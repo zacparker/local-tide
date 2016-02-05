@@ -8,16 +8,17 @@ Template.displayHesse.helpers({
           var $videos = $('video');
           var $hiddenVideos = $('video.hidden');
           var thisVideo = $videos.get(hesseDisplayCount);
-          var isVideoVisible = $hiddenVideos.length !== 3 ? true : false;
+          var $thisVideo = $('thisVideo');
+          var isVideoVisible = $thisVideo.hasClass('hidden');
           if (isVideoVisible) {
-            $(thisVideo).addClass('hidden');
+            $thisVideo.addClass('hidden');
             if (hesseDisplayCount >= 2) {
               hesseDisplayCount = 0;
             } else {
               hesseDisplayCount++;
             }
           } else if (!isVideoVisible) {
-            $(thisVideo).removeClass('hidden');
+            $thisVideo.removeClass('hidden');
           }
         }
       }

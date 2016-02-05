@@ -10,7 +10,7 @@ Template.displaySalazar.helpers({
           var $hiddenVideos = $('.pop-up.hidden');
           var thisVideo = $videos.get(salazarDisplayCount);
           var $thisVideo = $(thisVideo);
-          var isVideoVisible = $hiddenVideos.length !== 2 ? true : false;
+          var isVideoVisible = $thisVideo.hasClass('hidden');
           if (isVideoVisible) {
             $thisVideo.addClass('hidden');
             $bgVideo.removeClass('opacity-zero');
