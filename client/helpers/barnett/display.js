@@ -1,20 +1,34 @@
 Template.displayBarnett.helpers({
   actionPerformed: function() {
+    barnettDisplayCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "barnett") { // if the added item matches this artist
-          var selectedImageNumber = fields.selectedImageNumber;
-          var $selectedImgContainer = $('.user-selected-image-container');
-          var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
-          var fadeRate = 1500; // 1.5 seconds
-          $selectedImgContainer.html('<img src="/media/barnett/display/' + selectedImageNumber + '.jpg">'); // add the selected image to it's container
-          $selectedImgContainer.fadeTo(fadeRate, 1); // fade the image in
-          setTimeout(function() { // after 5 seconds, fade the image out and then remove it from the DOM
-            $selectedImgContainer.fadeTo(fadeRate, 0, function() {
-              $selectedImg.remove();
-            })
-          }, 5000);
+          var $images = $('img');
+          var imgCount = barnettDisplayCount - 1;
+          var thisImage = $images.get(imgCount);
+          var $thisImage = $(thisImage);
+          var toggleImage = function() {
+            $images.addClass('hidden')
+            $thisImage.removeClass('hidden');
+            if (barnettDisplayCount >= 2) {
+              barnettDisplayCount = 1;
+            } else {
+              barnettDisplayCount++;
+            }
+          };
+          switch(barnettDisplayCount) {
+            case 0:
+            barnettDisplayCount++;
+              break;
+            case 1:
+              toggleImage();
+              break;
+            case 2:
+              toggleImage();
+              break;
+          }
         }
       }
     });

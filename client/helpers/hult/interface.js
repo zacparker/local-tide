@@ -26,9 +26,9 @@ Template.interfaceHult.helpers({
 
 Template.interfaceHult.rendered = function () {
   var query = Actions.find();
+  hisci = 0; // hisci = hultInterfaceSlideshowCreatedIndex
   query.observeChanges({ // listen to changes to the collection
     added: function(id, fields) { // if anything is added to the collection
-      hisci = typeof hisci !== "undefined" ? hisci : 0; // hisci = hultInterfaceSlideshowCreatedIndex
       var startSlideshow = function() {
         $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).clone().appendTo('.clone-container');
         $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).remove();

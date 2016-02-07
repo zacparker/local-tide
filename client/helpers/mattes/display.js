@@ -1,10 +1,10 @@
 Template.displayMattes.helpers({
   actionPerformed: function() {
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
+    mattesCount = 0; // Defined in the global namespace to keep track of the count across actions
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "mattes") { // if the added item matches this artist
-          mattesCount = typeof mattesCount === "undefined" ? 0 : mattesCount; // Defined in the global namespace to keep track of the count across actions
           var i = Math.floor(mattesCount / 3);
           switch (mattesCount) {
             case 0:
