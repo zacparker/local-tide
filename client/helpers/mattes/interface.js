@@ -21,27 +21,3 @@ Template.interfaceMattes.helpers({
     }
   }
 });
-
-Template.interfaceMattes.rendered = function () {
-
-  var slideShowOptions = {
-    // Optional: How many ms should the auto slider be set to?
-    // Set to 0 for no auto slide
-    timer: 4000,
-    // Optional: Should the slideshow restart at the first element
-    // if the user clicks "next" at the last element?
-    carousel: true,
-    // Holder of all your views. Will most often only contain one
-    // view object!
-    views: [{
-      // Set to the DOM wrapper element
-      wrapper: this.find('.slide-show'),
-      // Set to the DOM slides elements
-      slides: this.findAll('.slide-show .slide')
-    }]
-  };
-
-  // Here the slideshow is actually created!
-  var slideShow = new Slidr( slideShowOptions );
-
-};
