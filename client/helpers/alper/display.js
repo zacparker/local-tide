@@ -1,6 +1,6 @@
 Template.displayAlper.helpers({
   actionPerformed: function() {
-    alperDisplayCount = 0;
+    alperDisplayCount = -1;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
@@ -17,9 +17,12 @@ Template.displayAlper.helpers({
             } else {
               alperDisplayCount++;
             }
-          } else if (!isVideoVisible) {
+          } else if (!isVideoVisible && alperDisplayCount >= 0) {
             $thisVideo.removeClass('hidden');
+          } else if (!isVideoVisible && alperDisplayCount === -1) {
+            alperDisplayCount++;
           }
+
         }
       }
     });

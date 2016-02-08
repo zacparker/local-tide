@@ -1,9 +1,16 @@
 .display.display-alper {
+  img {
+    position: absolute;
+    top: 50%;
+    height: auto;
+    width: 100%;
+    transform: translateY(-50%);
+  }
   video {
     position: absolute;
     top: -50%;
     height: auto;
     width: 100%;
-    transform: translateY(50%);
+    transform: translateY(47%);
   }
 }
