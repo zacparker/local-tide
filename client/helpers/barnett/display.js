@@ -5,7 +5,7 @@ Template.displayBarnett.helpers({
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
         if (fields.artist === "barnett") { // if the added item matches this artist
-          var $images = $('img');
+          var $images = $('img.interactive');
           var imgCount = barnettDisplayCount - 1;
           var thisImage = $images.get(imgCount);
           var $thisImage = $(thisImage);
@@ -18,6 +18,9 @@ Template.displayBarnett.helpers({
               barnettDisplayCount++;
             }
           };
+          if ($('img.bg')) {
+            $('img.bg').remove();
+          }
           switch(barnettDisplayCount) {
             case 0:
             barnettDisplayCount++;

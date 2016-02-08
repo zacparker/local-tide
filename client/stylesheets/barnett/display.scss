@@ -1,10 +1,19 @@
 .display.display-barnett {
   img {
+    width: 100%;
+    height: auto;
+  }
+  img.interactive {
     width:auto;
     height:auto;
     max-width:100%;
     max-height:100vh;
     display: block;
     margin: 0 auto;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
