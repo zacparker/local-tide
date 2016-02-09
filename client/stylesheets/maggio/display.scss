@@ -1,4 +1,9 @@
 .display.display-maggio {
+  .maggio-bg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   .top-nav {
     position: absolute;
     top: -40px;
