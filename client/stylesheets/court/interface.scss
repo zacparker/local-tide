@@ -1,8 +1,8 @@
 .interface.interface-court {
   video {
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translateY(80%);
+    transform: translateY(-50%);
   }
 
   .video-js {

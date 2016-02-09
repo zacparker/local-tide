@@ -1,11 +1,9 @@
 .display.display-court {
   video {
-    position: relative;
-    top: 50%;
-    transform: translateY(23%);
-  }
-  .video-js {
     width: 100%;
     height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
