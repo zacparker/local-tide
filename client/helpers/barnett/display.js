@@ -11,6 +11,9 @@ Template.displayBarnett.helpers({
           var thisImage = $images.get(imgCount);
           var $thisImage = $(thisImage);
           var toggleImage = function() {
+            if ($('img.bg')) {
+              $('img.bg').remove();
+            }
             $images.addClass('hidden')
             $thisImage.removeClass('hidden');
             if (barnettDisplayCount >= 2) {
@@ -19,9 +22,6 @@ Template.displayBarnett.helpers({
               barnettDisplayCount++;
             }
           };
-          if ($('img.bg')) {
-            $('img.bg').remove();
-          }
           switch(barnettDisplayCount) {
             case 0:
             barnettDisplayCount++;
