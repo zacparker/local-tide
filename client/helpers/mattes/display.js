@@ -1,11 +1,12 @@
 Template.displayMattes.helpers({
   actionPerformed: function() {
+    initializing = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     mattesCount = 0; // Defined in the global namespace to keep track of the count across actions
     isMattesAnimationInProgress = false;
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "mattes" && isMattesAnimationInProgress === false) { // if the added item matches this artist
+        if (fields.artist === "mattes" && isMattesAnimationInProgress === false && !initializing) { // if the added item matches this artist
           var i = Math.floor(mattesCount / 3);
           switch (mattesCount) {
             case 0:
@@ -48,6 +49,7 @@ Template.displayMattes.helpers({
         }
       }
     });
+    initializing = false;
     return query;
   }
 });

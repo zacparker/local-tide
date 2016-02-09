@@ -1,10 +1,11 @@
 Template.displayBarnett.helpers({
   actionPerformed: function() {
     barnettDisplayCount = 0;
+    initializing = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "barnett") { // if the added item matches this artist
+        if (fields.artist === "barnett" && !initializing) { // if the added item matches this artist
           var $images = $('img.interactive');
           var imgCount = barnettDisplayCount - 1;
           var thisImage = $images.get(imgCount);
@@ -35,6 +36,7 @@ Template.displayBarnett.helpers({
         }
       }
     });
+    initializing = false;
     return query;
   }
 });

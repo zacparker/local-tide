@@ -1,10 +1,11 @@
 Template.displayMaggio.helpers({
   actionPerformed: function() {
+    initializing = true;
     maggioDisplayCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "maggio") { // if the added item matches this artist
+        if (fields.artist === "maggio" && !initializing) { // if the added item matches this artist
           var $topNav = $('.top-nav');
           var $sidebar = $('.sidebar');
           var displayTopNav = function() {
@@ -40,6 +41,7 @@ Template.displayMaggio.helpers({
         }
       }
     });
+    initializing = false;
     return query;
   }
 });
