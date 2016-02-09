@@ -1,8 +1,12 @@
 /* interface */
 .interface {
-  a {
-    position: fixed;
-    bottom: 20px;
+  .info-modal-open {
+    position: absolute;
+    z-index: 9999;
+    bottom: -5px;
     left: 20px;
+    font-family: 'Fira Mono', monospace;
+    font-size: 50px;
+    font-weight: bold;
   }
 }

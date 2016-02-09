@@ -5,13 +5,8 @@
 
 /* Global Styles */
 a {
-  color: lightGrey;
+  color: white;
   text-decoration: none;
-  &.info-modal-open {
-    font-family: 'Fira Mono', monospace;
-    font-size: 50px;
-    font-weight: bold;
-  }
 }
 
 body {
@@ -56,6 +51,9 @@ body {
   height: 100%;
   width: 95%;
   margin: 0;
+  .anti-modal-closer {
+    font-size: 50pt;
+  }
 }
 
 .anti-modal-header {
@@ -82,9 +80,6 @@ body {
   padding: 0;
   p {
     margin-top: 50px;
-  }
-  .anti-modal-closer {
-    font-size: 50pt;
   }
 }
 
