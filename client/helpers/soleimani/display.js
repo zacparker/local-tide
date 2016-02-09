@@ -17,7 +17,7 @@ Template.displaySoleimani.helpers({
             v.play();
           }
           videoIsPlaying = !videoIsPlaying ? true : false;
-        } else if (soleimaniCount <= 0) {
+        } else if (fields.artist === "soleimani" && soleimaniCount <= 0) {
           soleimaniCount++;
         }
       }
