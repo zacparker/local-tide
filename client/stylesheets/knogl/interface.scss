@@ -1,12 +1,9 @@
 .interface.interface-knogl {
   video {
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-  }
-
-  .video-js {
-    width: 100%;
-    height: auto;
   }
 }
