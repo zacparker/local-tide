@@ -1,4 +1,11 @@
 .display-soleimani {
+  img {
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   video {
     height: 100%;
     width: auto;
