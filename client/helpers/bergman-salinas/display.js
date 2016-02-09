@@ -16,9 +16,9 @@ Template.displayBergmanSalinas.helpers({
           $('#display-bergman-salinas-video-selected').toggleClass('hidden');
           togglePlay($('#display-bergman-salinas-video').get(0));
           togglePlay($('#display-bergman-salinas-video-selected').get(0));
+        } else if (fields.artist === "bergman-salinas" && bergmanSalinasCount === 0) {
+          bergmanSalinasCount++;
         }
-      } else if (fields.artist === "bergman-salinas" && bergmanSalinasCount === 0) {
-        bergmanSalinasCount++;
       }
     });
     return query;
