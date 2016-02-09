@@ -1,11 +1,11 @@
 Template.displayHesse.helpers({
   actionPerformed: function() {
-    var initializing = true;
+    hesseCount
     hesseDisplayCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "hesse" && !initializing) { // if the added item matches this artist
+        if (fields.artist === "hesse" && hesseCount >= 1) { // if the added item matches this artist
           var $videos = $('video');
           var $hiddenVideos = $('video.hidden');
           var thisVideo = $videos.get(hesseDisplayCount);
@@ -21,10 +21,11 @@ Template.displayHesse.helpers({
           } else if (!isVideoVisible) {
             $thisVideo.removeClass('hidden');
           }
+        } else if (fields.artist === "hesse" && hesseCount === 0) {
+          hesseCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });

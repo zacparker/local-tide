@@ -1,10 +1,10 @@
 Template.displayBergmanSalinas.helpers({
   actionPerformed: function() {
-    var initializing = true;
+    bergmanSalinasCount =0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "bergman-salinas" && !initializing) { // if the added item matches this artist
+        if (fields.artist === "bergman-salinas" && bergmanSalinasCount >= 1) { // if the added item matches this artist
           var togglePlay = function(video) {
             if (video.paused) {
               video.play();
@@ -17,9 +17,10 @@ Template.displayBergmanSalinas.helpers({
           togglePlay($('#display-bergman-salinas-video').get(0));
           togglePlay($('#display-bergman-salinas-video-selected').get(0));
         }
+      } else if (fields.artist === "bergman-salinas" && bergmanSalinasCount === 0) {
+        bergmanSalinasCount++;
       }
     });
-    initializing = false;
     return query;
   }
 });
