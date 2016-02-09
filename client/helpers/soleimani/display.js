@@ -1,6 +1,6 @@
 Template.displaySoleimani.helpers({
   actionPerformed: function() {
-    initializing = true;
+    var initializing = true;
     videoIsPlaying = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection

@@ -1,6 +1,6 @@
 Template.displayMattes.helpers({
   actionPerformed: function() {
-    initializing = true;
+    var initializing = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     mattesCount = 0; // Defined in the global namespace to keep track of the count across actions
     isMattesAnimationInProgress = false;

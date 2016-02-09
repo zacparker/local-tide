@@ -1,6 +1,6 @@
 Template.displaySkyers.helpers({
   actionPerformed: function() {
-    initializing = true;
+    var initializing = true;
     var isAnimationInProgress;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     skyersCount = 0; // Defined in the global namespace to keep track of the count across actions
