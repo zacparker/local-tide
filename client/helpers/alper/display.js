@@ -5,9 +5,9 @@ Template.displayAlper.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "2" && !initializing) {
+        if (fields.sender === "2" && alperCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "alper" && alperCount >= 1) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "alper" && alperCount) { // if the added item matches this artist
           var $videos = $('video');
           var $hiddenVideos = $('video.hidden');
           var thisVideo = $videos.get(alperDisplayCount);

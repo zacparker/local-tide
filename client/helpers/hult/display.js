@@ -1,22 +1,23 @@
 Template.displayHult.helpers({
   actionPerformed: function() {
-    var initializing = true;
+    hultCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "4") {
+        if (fields.sender === "4" && hultCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "hult" && fields.terminalOfOrigin === "interface" && !initializing) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "hult" && fields.terminalOfOrigin === "interface" && hultCount) { // if the added item matches this artist
           $('.slide-show-before').toggleClass('hidden');
           $('.slide-show-after').toggleClass('hidden');
           setTimeout(function() {
             $('.slide-show-before').toggleClass('hidden');
             $('.slide-show-after').toggleClass('hidden');
           }, 4000);
+        } else if (fields.artist === "hult" && hultCount === 0) {
+          hultCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });

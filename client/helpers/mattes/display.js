@@ -1,16 +1,16 @@
 Template.displayMattes.helpers({
   actionPerformed: function() {
-    var initializing = true;
-    var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
-    mattesCount = 0; // Defined in the global namespace to keep track of the count across actions
+    mattesCount = 0;
+    mattesDisplayCount = 0; // Defined in the global namespace to keep track of the count across actions
     isMattesAnimationInProgress = false;
+    var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "3") {
+        if (fields.sender === "3" && mattesCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "mattes" && isMattesAnimationInProgress === false && !initializing) { // if the added item matches this artist
-          var i = Math.floor(mattesCount / 3);
-          switch (mattesCount) {
+        } else if (!fields.sender && fields.artist === "mattes" && isMattesAnimationInProgress === false && mattesCount) { // if the added item matches this artist
+          var i = Math.floor(mattesDisplayCount / 3);
+          switch (mattesDisplayCount) {
             case 0:
               break;
             case 1:
@@ -42,16 +42,17 @@ Template.displayMattes.helpers({
               $("html, body").animate({ scrollTop: 0 }, 0);
               break;
           }
-          // Increment the mattesCounter
-          mattesCount++;
-          // Reset the mattesCounter
-          if (mattesCount >= 18) {
-            mattesCount = 0;
+          // Increment the mattesDisplayCounter
+          mattesDisplayCount++;
+          // Reset the mattesDisplayCounter
+          if (mattesDisplayCount >= 18) {
+            mattesDisplayCount = 0;
           }
+        } else if (fields.artist === "mattes" && mattesCount === 0) {
+          mattesCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });

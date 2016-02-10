@@ -5,9 +5,9 @@ Template.displayStephens.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "5") {
+        if (fields.sender === "5" && stephensCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "stephens" && stephensCount >= 1) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "stephens" && stephensCount) { // if the added item matches this artist
           var v = $('#display-stephens-video').get(0);
           if (videoIsPlaying) { v.pause() } else {  v.play() }
           videoIsPlaying = !videoIsPlaying ? true : false;

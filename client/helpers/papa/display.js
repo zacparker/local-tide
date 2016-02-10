@@ -4,7 +4,7 @@ Template.displayPapa.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "3") {
+        if (fields.sender === "3" && papaCount) {
           location.href = "/" + fields.artist + "/display";
         } else if (!fields.sender && fields.artist === "papa" && papaCount) { // if the added item matches this artist
           var $video = $('#display-papa-video');

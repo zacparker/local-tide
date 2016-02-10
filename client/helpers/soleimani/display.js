@@ -5,9 +5,9 @@ Template.displaySoleimani.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "1" && soleimaniCount >= 1) {
+        if (fields.sender === "1" && soleimaniCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "soleimani" && soleimaniCount >= 1) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "soleimani" && soleimaniCount) { // if the added item matches this artist
           $('img').remove();
           var v = $('#display-soleimani-video').get(0);
           if ($(v).hasClass('hidden')) {

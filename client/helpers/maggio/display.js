@@ -1,13 +1,13 @@
 Template.displayMaggio.helpers({
   actionPerformed: function() {
-    var initializing = true;
+    maggioCount = 0;
     maggioDisplayCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "3") {
+        if (fields.sender === "3" && maggioCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "maggio" && !initializing) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "maggio" && maggioCount) { // if the added item matches this artist
           var $topNav = $('.top-nav');
           var $sidebar = $('.sidebar');
           var displayTopNav = function() {
@@ -40,10 +40,11 @@ Template.displayMaggio.helpers({
               reset();
               break;
           }
+        } else if (fields.artist === "maggio" && maggioCount === 0) {
+          maggioCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });
