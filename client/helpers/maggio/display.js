@@ -21,22 +21,19 @@ Template.displayMaggio.helpers({
           reset = function() {
             $topNav.animate({top: "-40px"}, 2000);
             $sidebar.animate({top: "-730px"}, 4000);
-            maggioDisplayCount = 1;
+            maggioDisplayCount = 0;
           },
           incrementCount = function() {
             maggioDisplayCount++;
           };
           switch(maggioDisplayCount) {
             case 0:
-              incrementCount();
-              break;
-            case 1:
               displayTopNav();
               break;
-            case 2:
+            case 1:
               displaySidebar();
               break;
-            case 3:
+            case 2:
               reset();
               break;
           }
