@@ -1,4 +1,7 @@
 .display.display-cox {
+  // transform: rotate(270deg);
+  // transform-origin: center left;
+  // height: 1024px;
   img {
     position: absolute;
     z-index: 2;
@@ -7,6 +10,7 @@
     height: 100%;
     width: auto;
     left: 50%;
+    // top: 50%;
     transform: translateX(-50%);
     z-index: 1;
   }
