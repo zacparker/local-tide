@@ -4,9 +4,9 @@
     top: -100%;
   }
   video {
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translateY(17%);
+    transform: translateY(-50%);
   }
 
   .video-js {

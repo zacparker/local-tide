@@ -1,8 +1,8 @@
 .interface.interface-skyers {
   video {
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translateY(40%);
+    transform: translateY(-50%);
   }
 
   .video-js {

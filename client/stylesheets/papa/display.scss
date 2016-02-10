@@ -1,17 +1,17 @@
 .display.display-papa {
   img {
     position: absolute;
-    top: -50%;
+    top: 50%;
     width: 100%;
     height: auto;
-    transform: translateY(63%);
+    transform: translateY(-50%);
   }
   video {
     position: absolute;
-    top: -50%;
+    top: 50%;
     width: 100%;
     height: auto;
-    transform: translateY(83%);
+    transform: translateY(-50%);
   }
   .opacity-zero {
     opacity: 0;

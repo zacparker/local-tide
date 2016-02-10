@@ -1,21 +1,15 @@
 .display.display-hesse {
   video {
-    position: relative;
-    top: -50%;
+    position: absolute;
+    top: 50%;
     width: 70%;
     height: auto;
     margin: 0 auto;
-  }
-  #hesse-video-display-1,
-  #hesse-video-display-2 {
-    transform: translateY(16%);
-  }
-  #hesse-video-display-3 {
-    transform: translateY(46%);
+    transform: translateY(-50%);
   }
   .background {
     position: absolute;
-    top: -50%;
-    transform: translateY(63%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
