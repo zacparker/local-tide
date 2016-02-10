@@ -1,7 +1,7 @@
 Template.displayMattes.helpers({
   actionPerformed: function() {
     mattesCount = 0;
-    mattesDisplayCount = 0; // Defined in the global namespace to keep track of the count across actions
+    mattesDisplayCount = 1; // Defined in the global namespace to keep track of the count across actions
     isMattesAnimationInProgress = false;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
@@ -46,7 +46,7 @@ Template.displayMattes.helpers({
           mattesDisplayCount++;
           // Reset the mattesDisplayCounter
           if (mattesDisplayCount >= 18) {
-            mattesDisplayCount = 0;
+            mattesDisplayCount = 1;
           }
         } else if (fields.artist === "mattes" && mattesCount === 0) {
           mattesCount++;
