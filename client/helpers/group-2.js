@@ -1,5 +1,5 @@
 Template.group2.events({
-  "click .btn": function(event, template) {
+  "click .btn-2": function(event, template) {
     var artist = event.target.dataset.redirect;
     var actionType = event.type;
     Meteor.call('removeActions', artist, function() {
