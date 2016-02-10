@@ -17,6 +17,19 @@ body {
   font-family: arial, helvetica;
 }
 
+button {
+  background-color: #000;
+  color:#fff;
+  text-decoration:none;
+  font-family: 'Lekton';
+  font-size: 21pt;
+  border: 0 none;
+  display: block;
+  text-align: left;
+  padding: 50px;
+  margin: 50px 0 0 50px;
+}
+
 
 /* Helper Classes */
 .hidden {
