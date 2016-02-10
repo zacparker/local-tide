@@ -28,8 +28,8 @@ Template.displaySkyers.helpers({
             skyersDisplayCount++;
             isAnimationInProgress = false;
           }
-        } else if (fields.artist === "skyers" && !skyersCount) {
-          skyers++;
+        } else if (fields.artist === "skyers" && skyersCount === 0) {
+          skyersCount++;
         }
       }
     });
