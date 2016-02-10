@@ -1,13 +1,13 @@
 Template.displayAlper.helpers({
   actionPerformed: function() {
+    alperCount = 0;
     alperDisplayCount = -1;
-    var initializing = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.sender === "2") {
+        if (fields.sender === "2" && !initializing) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "alper" && !initializing) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "alper" && alperCount >= 1) { // if the added item matches this artist
           var $videos = $('video');
           var $hiddenVideos = $('video.hidden');
           var thisVideo = $videos.get(alperDisplayCount);
@@ -25,11 +25,11 @@ Template.displayAlper.helpers({
           } else if (!isVideoVisible && alperDisplayCount === -1) {
             alperDisplayCount++;
           }
-
+        } else if (fields.artist === "alper" && alperCount === 0) {
+          alperCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });
