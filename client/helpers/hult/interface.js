@@ -23,34 +23,3 @@ Template.interfaceHult.helpers({
     }
   }
 });
-
-Template.interfaceHult.rendered = function () {
-  var query = Actions.find();
-  hisci = 0; // hisci = hultInterfaceSlideshowCreatedIndex
-  query.observeChanges({ // listen to changes to the collection
-    added: function(id, fields) { // if anything is added to the collection
-      var startSlideshow = function() {
-        $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).clone().appendTo('.clone-container');
-        $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).remove();
-        hisci++;
-        $('.clone-container div').removeClass();
-        $('.clone-container div').addClass('hult-slide-show-' + hisci);
-        $('.clone-container div').clone().appendTo('.slideshow-outer-wrapper');
-        $('.clone-container div').remove();
-        var hultInterfaceStartSlideShowOptions = {
-          timer: 8000,
-          carousel: true,
-          views: [{
-            wrapper: $('.slideshow-outer-wrapper .hult-slide-show-' + hisci).get(0),
-            slides: $('.slideshow-outer-wrapper .hult-slide-show-' + hisci + ' .slide').toArray()
-          }]
-        };
-        new Slidr( hultInterfaceStartSlideShowOptions );
-      };
-
-      if (fields.artist === "hult" && fields.terminalOfOrigin === "display") {
-        var slideShow = startSlideshow();
-      }
-    }
-  });
-};

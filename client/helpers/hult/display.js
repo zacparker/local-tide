@@ -12,7 +12,7 @@ Template.displayHult.helpers({
           setTimeout(function() {
             $('.slide-show-before').toggleClass('hidden');
             $('.slide-show-after').toggleClass('hidden');
-          }, 4000);
+          }, 8000);
         } else if (fields.artist === "hult" && hultCount === 0) {
           hultCount++;
         }
@@ -27,27 +27,17 @@ Template.displayHult.rendered = function () {
   var artist = "hult";
   var terminalOfOrigin = "display";
   var count = 0;
-  setTimeout(function() {
-    Meteor.call('removeActions', artist, function() { // clear all contents of the database and then
-      var slideShowOptions = {
-        timer: 8000,
-        carousel: true,
-        views: [{
-          wrapper: $('.slide-show-before').get(0),
-          slides: $('.slide-show-before .slide').toArray()
-        },{
-          wrapper: $('.slide-show-after').get(0),
-          slides: $('.slide-show-after .slide').toArray()
-        }]
-      };
-      Actions.insert({
-        artist: artist,
-        terminalOfOrigin: terminalOfOrigin,
-        count: count,
-        createdAt: new Date() // current time
-      }, count++);
+  var slideShowOptions = {
+    timer: 16000,
+    carousel: true,
+    views: [{
+      wrapper: $('.slide-show-before').get(0),
+      slides: $('.slide-show-before .slide').toArray()
+    },{
+      wrapper: $('.slide-show-after').get(0),
+      slides: $('.slide-show-after .slide').toArray()
+    }]
+  };
 
-      var slideShow = (count === 1) ? new Slidr( slideShowOptions ) : null;;
-    });
-  }, 5000);
+  var slideShow = new Slidr( slideShowOptions );
 }
