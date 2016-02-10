@@ -6,7 +6,9 @@ Template.displayMattes.helpers({
     isMattesAnimationInProgress = false;
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "mattes" && isMattesAnimationInProgress === false && !initializing) { // if the added item matches this artist
+        if (fields.sender === "3") {
+          location.href = "/" + fields.artist + "/display";
+        } else if (!fields.sender && fields.artist === "mattes" && isMattesAnimationInProgress === false && !initializing) { // if the added item matches this artist
           var i = Math.floor(mattesCount / 3);
           switch (mattesCount) {
             case 0:

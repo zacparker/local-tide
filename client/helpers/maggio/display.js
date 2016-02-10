@@ -5,7 +5,9 @@ Template.displayMaggio.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "maggio" && !initializing) { // if the added item matches this artist
+        if (fields.sender === "3") {
+          location.href = "/" + fields.artist + "/display";
+        } else if (!fields.sender && fields.artist === "maggio" && !initializing) { // if the added item matches this artist
           var $topNav = $('.top-nav');
           var $sidebar = $('.sidebar');
           var displayTopNav = function() {

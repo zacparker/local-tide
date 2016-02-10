@@ -4,7 +4,9 @@ Template.displayHult.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "hult" && fields.terminalOfOrigin === "interface" && !initializing) { // if the added item matches this artist
+        if (fields.sender === "4") {
+          location.href = "/" + fields.artist + "/display";
+        } else if (!fields.sender && fields.artist === "hult" && fields.terminalOfOrigin === "interface" && !initializing) { // if the added item matches this artist
           $('.slide-show-before').toggleClass('hidden');
           $('.slide-show-after').toggleClass('hidden');
           setTimeout(function() {

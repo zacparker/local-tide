@@ -1,10 +1,12 @@
 Template.displayStone.helpers({
   actionPerformed: function() {
-    var initializing = true;
+    stoneCount = 0;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "stone" && !initializing) { // if the added item matches this artist
+        if (fields.sender === "1") {
+          location.href = "/" + fields.artist + "/display";
+        } else if (!fields.sender && fields.artist === "stone" && stoneCount >= 1) { // if the added item matches this artist
           var selectedImageNumber = fields.selectedImageNumber;
           var $selectedImgContainer = $('.user-selected-image-container');
           var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
@@ -16,10 +18,11 @@ Template.displayStone.helpers({
               $selectedImg.remove();
             })
           }, 5000);
+        } else if (fields.artist === "stone" && stoneCount === 0) {
+          stoneCount++;
         }
       }
     });
-    initializing = false;
     return query;
   }
 });

@@ -4,7 +4,9 @@ Template.displayCox.helpers({
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
-        if (fields.artist === "cox" && !initializing) { // if the added item matches this artist
+        if (fields.sender === "1") {
+          location.href = "/" + fields.artist + "/display";
+        } else if (!fields.sender && fields.artist === "cox" && !initializing) { // if the added item matches this artist
           var selectedImageNumber = fields.selectedImageNumber;
           var $selectedImgContainer = $('.user-selected-image-container');
           var $selectedImg = $('.user-selected-image-container').find('img'); // the image that the user selected via the interface
