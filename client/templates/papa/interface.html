@@ -1,7 +1,9 @@
 <template name="interfacePapa">
   <div class="interface interface-papa">
     {{#HammerTouchArea gestureMap=templateGestures}}
-      <img class="trigger" src="/media/papa/interface/egp-internt-object.jpg" />
+      <video id="display-papa-video" class="video-js vjs-default-skin trigger" autoplay loop preload="auto" width="700" height="526">
+        <source src="/media/papa/display/egp-parallelograms.mp4" type='video/mp4' />
+      </video>
       <a class="info-modal-open" href="#">T</a>
       <a class="menu-group-open" href="/group-3"><svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" height="50" viewBox="0 0 24 24" width="50">
           <path d="M0 0h24v24H0z" fill="none"/>
