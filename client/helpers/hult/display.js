@@ -6,13 +6,13 @@ Template.displayHult.helpers({
       added: function(id, fields) { // if anything is added to the collection
         if (fields.sender === "4" && hultCount) {
           location.href = "/" + fields.artist + "/display";
-        } else if (!fields.sender && fields.artist === "hult" && fields.terminalOfOrigin === "interface" && hultCount) { // if the added item matches this artist
+        } else if (!fields.sender && fields.artist === "hult" && hultCount) { // if the added item matches this artist
           $('.slide-show-before').toggleClass('hidden');
           $('.slide-show-after').toggleClass('hidden');
           setTimeout(function() {
             $('.slide-show-before').toggleClass('hidden');
             $('.slide-show-after').toggleClass('hidden');
-          }, 8000);
+          }, 5000);
         } else if (fields.artist === "hult" && hultCount === 0) {
           hultCount++;
         }

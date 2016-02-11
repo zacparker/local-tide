@@ -1,3 +1,10 @@
 .interface.interface-hult {
-  // Do stuff
+  img {
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 0;
+    display: block;
+    margin: 0 auto;
+  }
 }
