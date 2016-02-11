@@ -1,16 +1,14 @@
 <template name="interfaceStone">
   <div class="interface interface-stone">
     {{#HammerTouchArea gestureMap=templateGestures}}
-      <div class="vertical-center-wrapper">
-        <img src="/media/stone/interface/map.jpg" class="trigger" usemap="#map-stone">
-      </div>
+      <img src="/media/stone/interface/map.jpg" class="trigger" usemap="#map-stone">
       <map id="map-stone" name="map-stone" class="trigger">
-        <area shape="rect" coords="0,0,640,640"        href="#" class="trigger" id="1">
-        <area shape="rect" coords="640,0,1280,640"     href="#" class="trigger" id="2">
-        <area shape="rect" coords="1280,0,1920,640"    href="#" class="trigger" id="3">
-        <area shape="rect" coords="0,640,640,1280"     href="#" class="trigger" id="4">
-        <area shape="rect" coords="640,640,1280,1280"  href="#" class="trigger" id="5">
-        <area shape="rect" coords="1280,640,1920,1280" href="#" class="trigger" id="6">
+        <area shape="rect" coords="0,0,255,255"     id="1" href="#" class="trigger">
+        <area shape="rect" coords="255,0,511,255"   id="2" href="#" class="trigger">
+        <area shape="rect" coords="0,255,255,511"   id="3" href="#" class="trigger">
+        <area shape="rect" coords="255,255,511,511" id="4" href="#" class="trigger">
+        <area shape="rect" coords="0,511,255,768"   id="5" href="#" class="trigger">
+        <area shape="rect" coords="255,511,511,768" id="6" href="#" class="trigger">
       </map>
       <a class="info-modal-open" href="#">T</a>
       <a class="menu-group-open" href="/group-1"><svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" height="50" viewBox="0 0 24 24" width="50">
@@ -20,4 +18,3 @@
     {{/HammerTouchArea}}
   </div>
 </template>
-
