@@ -12,11 +12,9 @@ Template.displayPapa.helpers({
           var $bgImg = $('img');
           if (isVideoVisible) {
             $video.removeClass('hidden');
-            $video.get(0).play();
             $bgImg.addClass('opacity-zero');
           } else {
             $video.addClass('hidden');
-            $video.get(0).pause();
             $bgImg.removeClass('opacity-zero');
           }
         } else if (fields.artist === "papa" && papaCount === 0) {
