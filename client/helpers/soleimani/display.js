@@ -1,24 +1,14 @@
 Template.displaySoleimani.helpers({
   actionPerformed: function() {
     soleimaniCount = 0;
-    videoIsPlaying = true;
     var query = Actions.find(); // find all data in Actions collection, assign it to 'query'
     query.observeChanges({ // listen to changes to the collection
       added: function(id, fields) { // if anything is added to the collection
         if (fields.sender === "1" && soleimaniCount) {
           location.href = "/" + fields.artist + "/display";
         } else if (!fields.sender && fields.artist === "soleimani" && soleimaniCount) { // if the added item matches this artist
-          $('img').remove();
-          var v = $('#display-soleimani-video').get(0);
-          if ($(v).hasClass('hidden')) {
-            $(v).removeClass('hidden')
-          }
-          if (videoIsPlaying) {
-            v.pause();
-          } else {
-            v.play();
-          }
-          videoIsPlaying = !videoIsPlaying ? true : false;
+          var $images = $('img');
+          $images.toggleClass('hidden');
         } else if (fields.artist === "soleimani" && soleimaniCount === 0) {
           soleimaniCount++;
         }

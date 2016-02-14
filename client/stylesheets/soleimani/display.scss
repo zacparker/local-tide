@@ -1,15 +1,16 @@
 .display-soleimani {
-  img {
+  .bg {
     height: auto;
     width: 100%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
-  video {
-    height: 100%;
+  .gif {
+    height: 100vh;
     width: auto;
-    position: absolute;
-    left: 25%;
+    position: static;
+    display: block;
+    margin: 0 auto;
   }
 }
